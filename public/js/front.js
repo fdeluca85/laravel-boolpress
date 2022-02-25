@@ -2123,6 +2123,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePost",
   data: function data() {
@@ -2131,9 +2133,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
+    var _this = this;
+
     // console.log(this.$route.params.slug);
     axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (response) {
-      console.log(response.data);
+      // console.log(response.data);
+      _this.post = response.data;
     });
   }
 });
@@ -2888,7 +2893,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("h2", [_vm._v(_vm._s(_vm.$route.params.slug))])])
+  return _c("div", [
+    _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
+    _vm._v(" "),
+    _c("img", {
+      attrs: {
+        src: "/storage/" + _vm.post.image,
+        alt: "Immagine che ritrae " + _vm.post.title,
+      },
+    }),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

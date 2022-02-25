@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2>{{$route.params.slug}}</h2>
+    <h2>{{post.title}}</h2>
+    <img :src="`/storage/${post.image}`" :alt="'Immagine che ritrae ' + post.title">
+    <p>{{post.content}}</p>
   </div>
 </template>
 
@@ -16,7 +18,8 @@ export default {
         // console.log(this.$route.params.slug);
         axios.get(`/api/posts/${this.$route.params.slug}`)
         .then( (response) => {
-            console.log(response.data);
+            // console.log(response.data);
+            this.post = response.data;
         });
     }
 }
