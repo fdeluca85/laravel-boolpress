@@ -2162,6 +2162,10 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (response) {
       // console.log(response.data);
       _this.post = response.data;
+    })["catch"](function (error) {
+      _this.$router.push({
+        name: "page-404"
+      });
     });
   }
 });
@@ -2760,7 +2764,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [_c("router-view")], 1)
+  return _c("main", [_c("router-view", { key: _vm.$route.path })], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

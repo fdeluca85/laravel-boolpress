@@ -20,7 +20,9 @@ export default {
         .then( (response) => {
             // console.log(response.data);
             this.post = response.data;
-        });
+        }).catch( (error) =>{
+            this.$router.push({name: "page-404"});
+        })
     }
 }
 </script>
