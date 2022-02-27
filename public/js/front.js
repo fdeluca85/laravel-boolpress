@@ -2207,7 +2207,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/api/categories/".concat(this.$route.params.slug)).then(function (response) {
       _this.category = response.data;
-    })["catch"](function () {
+    })["catch"](function (error) {
       _this.$router.push({
         name: "page-404"
       });
@@ -3767,17 +3767,34 @@ var render = function () {
   return _c("div", [
     _c("h1", [_vm._v(_vm._s(_vm.category.name))]),
     _vm._v(" "),
-    _vm._m(0),
+    _vm.category.post.lenght > 0
+      ? _c(
+          "ul",
+          _vm._l(_vm.category.post, function (post) {
+            return _c(
+              "li",
+              { key: post.id },
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: { name: "single-post", params: { slug: post } },
+                    },
+                  },
+                  [_vm._v(_vm._s(post.title))]
+                ),
+                _vm._v(">\n        "),
+              ],
+              1
+            )
+          }),
+          0
+        )
+      : _c("p", [_vm._v("Non ci sono post associati")]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", [_c("li")])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -20023,7 +20040,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/categorie",
     name: "categories",
     component: _pages_Categories__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }, {
+  }, //rotta dinamica
+  {
     path: "/categorie/:slug",
     name: "single-category",
     component: _pages_SingleCategory__WEBPACK_IMPORTED_MODULE_6__["default"]

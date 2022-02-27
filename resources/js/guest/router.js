@@ -37,11 +37,13 @@ const router = new VueRouter({
             name: "categories",
             component: Categories,
         },
+        //rotta dinamica
         {
             path: "/categorie/:slug",
             name: "single-category",
             component: SingleCategory,
         },
+
         //pagina 404
         {
             path: "*",
