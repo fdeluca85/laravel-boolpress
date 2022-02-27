@@ -1,6 +1,6 @@
 <template>
   <header>
-      <h2>Sono un header</h2>
+      <h2>BoolPress- Blog di ricette</h2>
       <a href="/admin/home">Area riservata</a>
       <nav>
         <li>
@@ -21,5 +21,8 @@ export default {
 </script>
 
 <style>
+header{
+  background-color: aquamarine;
+}
 
 </style>

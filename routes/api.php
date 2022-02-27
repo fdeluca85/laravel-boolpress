@@ -18,5 +18,10 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+
 Route::get("/posts", "Api\PostController@index");
 Route::get("/posts/{slug}", "Api\PostController@show");
+
+//api/categories
+Route::get("/categories", "Api\CategoryController@index");
+Route::get("/categories/{slug}", "Api\CategoryController@show");
