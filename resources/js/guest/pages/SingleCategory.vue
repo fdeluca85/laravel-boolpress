@@ -1,9 +1,9 @@
 <template>
-<div>
+<div class="card">
     <h1>{{category.name}}</h1>
     <ul v-if="category.posts.length > 0">
         <li v-for="post in category.posts" :key="post.id">
-            <router-link :to="{name: 'single-post', params: {slug: post} }">{{post.title}}</router-link>
+            <router-link :to="{name: 'single-post', params: {slug:post.slug } }">{{post.title}}</router-link>
         </li>
     </ul>
     <p v-else>Non ci sono post associati</p>

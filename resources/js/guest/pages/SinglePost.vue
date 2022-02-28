@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <h2>{{post.title}}</h2>
     <img :src="`/storage/${post.image}`" :alt="'Immagine che ritrae ' + post.title">
     <div v-if="post.tags.length > 0">
@@ -36,5 +36,6 @@ export default {
 </script>
 
 <style  lang='scss' scoped>
+
 
 </style>

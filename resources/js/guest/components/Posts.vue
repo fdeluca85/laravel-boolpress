@@ -2,13 +2,13 @@
     <section>
         <div>
             <h2>Lista post</h2>
-            <ul>
-                <li v-for="post in posts" :key="post.id">
+            <ul >
+                <li class="card" v-for="post in posts" :key="post.id">
                     <h3>{{post.title}}</h3>
                     <img class="foto" :src="`/storage/${post.image}`" :alt="'Immagine che ritrae ' + post.title">
                     <p class="categoria" v-if="post.category">{{post.category.name}} </p>
                     
-                    <p>{{post.content}}</p>
+                    <p class="intro">{{post.content}}</p>
                     <button><router-link :to="{ name: 'single-post', params: { slug:post.slug } }">Continua a leggere</router-link></button>
                 </li>
             </ul>
@@ -68,4 +68,14 @@ img{
     font-size: 0.8em;
     border-radius: 15px;
 }
+.intro{ 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
 </style>

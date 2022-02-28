@@ -2315,7 +2315,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "button[data-v-3a9fca4f] {\n  border: none;\n  margin-top: 1em;\n  padding: 1em 3em;\n  background-color: #1A2643;\n  border-radius: 25px;\n}\nbutton a[data-v-3a9fca4f] {\n  color: beige;\n  font-size: 1.2em;\n  font-weight: 500;\n}\nbutton[data-v-3a9fca4f]:hover {\n  background-color: #fff;\n}\nbutton:hover a[data-v-3a9fca4f] {\n  color: #1A2643;\n}\nimg[data-v-3a9fca4f] {\n  height: 150px;\n}\n.categoria[data-v-3a9fca4f] {\n  background-color: aquamarine;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 0.1em 0.8em;\n  font-size: 0.8em;\n  border-radius: 15px;\n}", ""]);
+exports.push([module.i, "button[data-v-3a9fca4f] {\n  border: none;\n  margin-top: 1em;\n  padding: 1em 3em;\n  background-color: #1A2643;\n  border-radius: 25px;\n}\nbutton a[data-v-3a9fca4f] {\n  color: beige;\n  font-size: 1.2em;\n  font-weight: 500;\n}\nbutton[data-v-3a9fca4f]:hover {\n  background-color: #fff;\n}\nbutton:hover a[data-v-3a9fca4f] {\n  color: #1A2643;\n}\nimg[data-v-3a9fca4f] {\n  height: 150px;\n}\n.categoria[data-v-3a9fca4f] {\n  background-color: aquamarine;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 0.1em 0.8em;\n  font-size: 0.8em;\n  border-radius: 15px;\n}\n.intro[data-v-3a9fca4f] {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box !important;\n  -webkit-line-clamp: 3;\n  -webkit-box-orient: vertical;\n  white-space: normal;\n}", ""]);
 
 // exports
 
@@ -3661,7 +3661,7 @@ var render = function () {
       _c(
         "ul",
         _vm._l(_vm.posts, function (post) {
-          return _c("li", { key: post.id }, [
+          return _c("li", { key: post.id, staticClass: "card" }, [
             _c("h3", [_vm._v(_vm._s(post.title))]),
             _vm._v(" "),
             _c("img", {
@@ -3678,7 +3678,7 @@ var render = function () {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(post.content))]),
+            _c("p", { staticClass: "intro" }, [_vm._v(_vm._s(post.content))]),
             _vm._v(" "),
             _c(
               "button",
@@ -3763,7 +3763,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "card" }, [
     _c("h1", [_vm._v("Categorie")]),
     _vm._v(" "),
     _c(
@@ -3874,7 +3874,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "card" }, [
     _c("h1", [_vm._v(_vm._s(_vm.category.name))]),
     _vm._v(" "),
     _vm.category.posts.length > 0
@@ -3889,7 +3889,7 @@ var render = function () {
                   "router-link",
                   {
                     attrs: {
-                      to: { name: "single-post", params: { slug: post } },
+                      to: { name: "single-post", params: { slug: post.slug } },
                     },
                   },
                   [_vm._v(_vm._s(post.title))]
@@ -3925,7 +3925,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "card" }, [
     _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
     _vm._v(" "),
     _c("img", {

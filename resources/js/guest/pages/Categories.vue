@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
       <h1>Categorie</h1>
       
       <ul>
