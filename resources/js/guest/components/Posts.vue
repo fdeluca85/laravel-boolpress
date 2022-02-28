@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="container">
+        <div>
             <h2>Lista post</h2>
             <ul>
                 <li v-for="post in posts" :key="post.id">
@@ -36,14 +36,7 @@ export default {
 </script>
 
 <style  lang='scss' scoped>
-ul{
-    list-style: none;
-    li{
-        margin: 1em;
-        padding: 1em;
-        line-height: 2;
-    }
-}
+
 button{
     border: none;
     margin-top: 1em;

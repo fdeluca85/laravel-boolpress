@@ -2008,6 +2008,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Main"
 });
@@ -2314,7 +2315,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "ul[data-v-3a9fca4f] {\n  list-style: none;\n}\nul li[data-v-3a9fca4f] {\n  margin: 1em;\n  padding: 1em;\n  line-height: 2;\n}\nbutton[data-v-3a9fca4f] {\n  border: none;\n  margin-top: 1em;\n  padding: 1em 3em;\n  background-color: #1A2643;\n  border-radius: 25px;\n}\nbutton a[data-v-3a9fca4f] {\n  color: beige;\n  font-size: 1.2em;\n  font-weight: 500;\n}\nbutton[data-v-3a9fca4f]:hover {\n  background-color: #fff;\n}\nbutton:hover a[data-v-3a9fca4f] {\n  color: #1A2643;\n}\nimg[data-v-3a9fca4f] {\n  height: 150px;\n}\n.categoria[data-v-3a9fca4f] {\n  background-color: aquamarine;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 0.1em 0.8em;\n  font-size: 0.8em;\n  border-radius: 15px;\n}", ""]);
+exports.push([module.i, "button[data-v-3a9fca4f] {\n  border: none;\n  margin-top: 1em;\n  padding: 1em 3em;\n  background-color: #1A2643;\n  border-radius: 25px;\n}\nbutton a[data-v-3a9fca4f] {\n  color: beige;\n  font-size: 1.2em;\n  font-weight: 500;\n}\nbutton[data-v-3a9fca4f]:hover {\n  background-color: #fff;\n}\nbutton:hover a[data-v-3a9fca4f] {\n  color: #1A2643;\n}\nimg[data-v-3a9fca4f] {\n  height: 150px;\n}\n.categoria[data-v-3a9fca4f] {\n  background-color: aquamarine;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 0.1em 0.8em;\n  font-size: 0.8em;\n  border-radius: 15px;\n}", ""]);
 
 // exports
 
@@ -3622,7 +3623,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [_c("router-view", { key: _vm.$route.path })], 1)
+  return _c("main", [
+    _c(
+      "div",
+      { staticClass: "container" },
+      [_c("router-view", { key: _vm.$route.path })],
+      1
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3647,7 +3655,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("div", { staticClass: "container" }, [
+    _c("div", [
       _c("h2", [_vm._v("Lista post")]),
       _vm._v(" "),
       _c(
@@ -3869,10 +3877,10 @@ var render = function () {
   return _c("div", [
     _c("h1", [_vm._v(_vm._s(_vm.category.name))]),
     _vm._v(" "),
-    _vm.category.post.lenght > 0
+    _vm.category.posts.length > 0
       ? _c(
           "ul",
-          _vm._l(_vm.category.post, function (post) {
+          _vm._l(_vm.category.posts, function (post) {
             return _c(
               "li",
               { key: post.id },
@@ -3886,7 +3894,6 @@ var render = function () {
                   },
                   [_vm._v(_vm._s(post.title))]
                 ),
-                _vm._v(">\n        "),
               ],
               1
             )

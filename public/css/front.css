@@ -13,6 +13,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: beige;
+  line-height: 2;
 }
 
 /*--------------
@@ -26,5 +27,15 @@ body {
 
 a {
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin: 1em;
+  padding: 1em;
+  line-height: 2;
 }
 
