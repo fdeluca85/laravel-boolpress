@@ -2,6 +2,14 @@
   <div>
     <h2>{{post.title}}</h2>
     <img :src="`/storage/${post.image}`" :alt="'Immagine che ritrae ' + post.title">
+    <div v-if="post.tags.length > 0">
+                        <strong>Tag</strong>
+                        <ul>
+                            <li v-for="tag in post.tags" :key="tag.id">
+                                {{tag.name}}
+                            </li>
+                        </ul>
+                    </div>
     <p>{{post.content}}</p>
   </div>
 </template>
@@ -27,6 +35,6 @@ export default {
 }
 </script>
 
-<style>
+<style  lang='scss' scoped>
 
 </style>
