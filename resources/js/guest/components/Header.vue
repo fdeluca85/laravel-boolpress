@@ -28,15 +28,19 @@ export default {
 
 <style  lang='scss' scoped>
 header{
-  background-color: #1A2643;
+  background-color: #005f73;
+  line-height: 1em;
+  padding-top: 1em;
   h1{
     color: beige;
+    font-family: 'Indie Flower', cursive;
   }
 }
 button{
   border: none;
   padding: 1em;
-  background-color: beige;
+  
+  background-color: #94d2bd;
     a{color: #1A2643;
     font-size: 1.2em;}
 
@@ -59,6 +63,7 @@ nav{
   padding: 1em 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 </style>

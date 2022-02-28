@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;
 
-400;700&display=swap);* {
+400;700&display=swap);@import url(https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap);* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -12,8 +12,9 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: beige;
+  background-color: #94d2bd;
   line-height: 2;
+  height: 100%;
 }
 
 /*--------------
@@ -22,7 +23,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  width: 80vw;
 }
 
 a {

@@ -1,9 +1,9 @@
 <template>
-  <div class="card">
+  <div>
       <h1>Categorie</h1>
       
-      <ul>
-          <li v-for="category in categories" :key="category.id">
+      <ul class="box">
+          <li  class="card" v-for="category in categories" :key="category.id">
               <router-link :to="{name:'single-category', params: { slug:category.slug} }">{{category.name}}</router-link>
           </li>
       </ul>
@@ -29,5 +29,15 @@ export default {
 </script>
 
 <style  lang='scss' scoped>
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    
+}
+.card{
+    width: 10em;
+    text-align: center;
+}
 
 </style>

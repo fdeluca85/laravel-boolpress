@@ -1,8 +1,7 @@
 <template>
     <section>
         <div>
-            <h2>Lista post</h2>
-            <ul >
+            <ul class="box">
                 <li class="card" v-for="post in posts" :key="post.id">
                     <h3>{{post.title}}</h3>
                     <img class="foto" :src="`/storage/${post.image}`" :alt="'Immagine che ritrae ' + post.title">
@@ -41,7 +40,7 @@ button{
     border: none;
     margin-top: 1em;
     padding: 1em 3em;
-    background-color:#1A2643;
+    background-color:#005f73;
     border-radius: 25px;
     
         a{
@@ -51,7 +50,7 @@ button{
         }        
 }
 button:hover{
-            background-color: #fff;
+            background-color: #94d2bd;
             
             a{
                 color: #1A2643;
@@ -62,11 +61,12 @@ img{
         height: 150px;
 }
 .categoria{
-    background-color:aquamarine;
+    border: 2px solid #94d2bd;
     width: fit-content;
     padding: .1em .8em;
+    margin: 2em;
     font-size: 0.8em;
-    border-radius: 15px;
+    color: #001219;
 }
 .intro{ 
   white-space: nowrap;
@@ -77,5 +77,20 @@ img{
   -webkit-box-orient: vertical;
   white-space: normal;
 }
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+.card{
+    width: 30em;
+}
+.foto{
+    display:block;
+    margin:1em auto;
+    text-align:center;
+    border-radius: 1em;
+}
+
 
 </style>

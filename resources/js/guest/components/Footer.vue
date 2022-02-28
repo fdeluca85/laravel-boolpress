@@ -12,7 +12,7 @@ export default {
 
 <style  lang='scss' scoped>
 footer{
-  background-color: #1A2643; 
+  background-color: #005f73; 
 }
 
 </style>
