@@ -19,13 +19,22 @@
             </div>
             <div>
                 <textarea id="content" cols="30" rows="10" placeholder="Inserisci un commento *" v-model="formData.content"></textarea>
+                <!-- ERRORI -->
+                <div v-if="formErrors.content" style="background: red; color:white">
+                    <p>Attenzione! Non hai inserito il commento correttamente:</p>
+                    <ul>
+                        <li v-for="(error, index) in formErrors.content" :key="index">
+                            {{error}}
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div>
                 <button type="submit">Aggingi commento</button>
             </div>
         </form>
         <div v-show="commentSent" class="comment_approve">
-            <p>Commento in attesa di approvazione</p>
+            <p>Grazie per aver commentato, il commento è in attesa di approvazione</p>
         </div>
     </div>
   </div>
@@ -42,7 +51,8 @@ export default {
                 content:"",
                 post_id: null
             },
-            commentSent: false
+            commentSent: false,
+            formErrors:{}
         }
     },
     methods:{
@@ -58,6 +68,9 @@ export default {
 
             //commento è stato inserito
             this.commentSent = true
+        }).catch( (error) =>{
+            // console.log(error.response.data.errors);
+            this.formErrors = error.response.data.errors;
         })
         }
     },

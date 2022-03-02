@@ -2261,6 +2261,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePost",
   data: function data() {
@@ -2271,7 +2280,8 @@ __webpack_require__.r(__webpack_exports__);
         content: "",
         post_id: null
       },
-      commentSent: false
+      commentSent: false,
+      formErrors: {}
     };
   },
   methods: {
@@ -2287,6 +2297,9 @@ __webpack_require__.r(__webpack_exports__);
         _this.formData.content = ""; //commento è stato inserito
 
         _this.commentSent = true;
+      })["catch"](function (error) {
+        // console.log(error.response.data.errors);
+        _this.formErrors = error.response.data.errors;
       });
     }
   },
@@ -4172,6 +4185,34 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formErrors.content
+              ? _c(
+                  "div",
+                  { staticStyle: { background: "red", color: "white" } },
+                  [
+                    _c("p", [
+                      _vm._v(
+                        "Attenzione! Non hai inserito il commento correttamente:"
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      _vm._l(_vm.formErrors.content, function (error, index) {
+                        return _c("li", { key: index }, [
+                          _vm._v(
+                            "\n                          " +
+                              _vm._s(error) +
+                              "\n                      "
+                          ),
+                        ])
+                      }),
+                      0
+                    ),
+                  ]
+                )
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _vm._m(0),
@@ -4191,7 +4232,13 @@ var render = function () {
           ],
           staticClass: "comment_approve",
         },
-        [_c("p", [_vm._v("Commento in attesa di approvazione")])]
+        [
+          _c("p", [
+            _vm._v(
+              "Grazie per aver commentato, il commento è in attesa di approvazione"
+            ),
+          ]),
+        ]
       ),
     ]),
   ])
