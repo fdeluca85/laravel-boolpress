@@ -10,6 +10,7 @@
                     <form action="{{route("posts.update", $post->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method("PUT")
+                                        {{-- TITLE --}}
                         <div class="form-group">
                           <label for="title">Titolo</label>
                           <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Inserisci il titolo" value="{{old('title') ? old('title') : $post->title}}">
@@ -17,6 +18,7 @@
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+                                        {{-- CONTENT --}}
                         <div class="form-group">
                             <label for="content">Testo</label>
                             <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" placeholder="Inserisci il contenuto del post" rows="5">{{old('content') ? old('content') : $post->content}}</textarea>
@@ -24,6 +26,7 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+                                        {{-- CATEGORY --}}
                         <div class="form-group">
                             <label for="category">Categoria</label>
                             <select class="custom-select @error('category_id') is-invalid @enderror" name="category_id" id="category">
@@ -36,6 +39,29 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+                                            {{-- TAGS --}}
+                        <div class="form-group">
+                            <p>Tags</p>
+                            @foreach ($tags as $tag)
+                            <div class="form-check form-check-inline">
+                                
+                                @if (old("tags"))
+                                    <input class="form-check-input @error('tags') is-invalid @enderror" form-check" type="checkbox" id="{{$tag->slug}}" name="tags[]" value="{{$tag->id}}" {{in_array($tag->id, old("tags", [])) ? 'checked' : ''}}>
+                                    
+                                @else
+                                    <input class="form-check-input @error('tags') is-invalid @enderror" form-check" type="checkbox" id="{{$tag->slug}}" name="tags[]" value="{{$tag->id}}" {{$post->tags->contains($tag) ? 'checked' : ''}}>
+                                
+                                @endif
+                                
+
+                                <label class="form-check-label" for="{{$tag->slug}}">{{$tag->name}}</label>
+                            </div>
+                            @endforeach
+                            @error('tags')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                                            {{-- IMAGE --}}
                         @if ($post->image)
                         <img class="mb-2" width="100" src="{{asset("storage/{$post->image}")}}" alt=""> 
                         @endif
@@ -45,9 +71,8 @@
                             @error('image')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
-                          </div>
-
-
+                        </div>
+                                            {{-- PUBLISHED --}}
                         <div class="form-group form-check">
                             @php
                                 $published = old('published') ? old('published') : $post->published;

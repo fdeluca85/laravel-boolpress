@@ -9,6 +9,7 @@
                 <div class="card-body">
                     <form action="{{route("posts.store")}}" method="POST" enctype="multipart/form-data">
                         @csrf
+                                                    {{-- TITLE --}}
                         <div class="form-group">
                           <label for="title">Titolo</label>
                           <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Inserisci il titolo" value="{{old('title')}}">
@@ -16,6 +17,7 @@
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+                                                {{-- //CONTENT --}}
                         <div class="form-group">
                             <label for="content">Testo</label>
                             <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" placeholder="Inserisci il contenuto del post" rows="5">{{old('content')}}</textarea>
@@ -23,6 +25,7 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+                                                {{-- //CATEGORY --}}
                         <div class="form-group">
                             <label for="category">Categoria</label>
                             <select class="custom-select @error('category_id') is-invalid @enderror" name="category_id" id="category">
@@ -35,11 +38,9 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
-
-
+                                                    {{-- //TAGS --}}
                         <div class="form-group">
                             <p>Tags</p>
-
                             @foreach ($tags as $tag)
                             <div class="form-check form-check-inline">                            
                                 <input class="form-check-input @error('tags') is-invalid @enderror" form-check" type="checkbox" id="{{$tag->slug}}" name="tags[]" value="{{$tag->id}}" {{in_array($tag->id, old("tags", [])) ? 'checked' : ''}}>                            
@@ -50,13 +51,12 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
-
-
-
+                                                    {{-- //IMAGE --}}
                         <div class="custom-file mb-2">
                             <input type="file" class="custom-file-input" id="image" name="image">
                             <label class="custom-file-label" for="customFile">Aggiungi immagine</label>
-                          </div>
+                        </div>
+                                                    {{-- //PUBLISHED --}}
                         <div class="form-group form-check">
                             <input class="form-check-input @error('published') is-invalid @enderror" type="checkbox" id="published" name="published" {{old('published') ? 'checked' : ''}}>                            
                             <label class="form-check-label" for="published">Pubblica</label>
