@@ -35,18 +35,23 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+
+
                         <div class="form-group">
                             <p>Tags</p>
                             @foreach ($tags as $tag)
                             <div class="form-check form-check-inline">                            
-                                <input class="form-check-input form-check" type="checkbox" id="{{$tag->slug}}" name="tags[]" value="{{$tag->id}}">                            
+                                <input class="form-check-input @error('tags') is-invalid @enderror" form-check" type="checkbox" id="{{$tag->slug}}" name="tags[]" value="{{$tag->id}}">                            
                                 <label class="form-check-label" for="{{$tag->slug}}">{{$tag->name}}</label>
                             </div>
                             @endforeach
-                            
-                            
-
+                            @error('tags')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
+
+
+
                         <div class="custom-file mb-2">
                             <input type="file" class="custom-file-input" id="image" name="image">
                             <label class="custom-file-label" for="customFile">Aggiungi immagine</label>

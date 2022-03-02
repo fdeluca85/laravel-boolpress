@@ -2,8 +2,8 @@
   <div class="card">
     <h2>{{post.title}}</h2>
     <img class="foto" :src="`/storage/${post.image}`" :alt="'Immagine che ritrae ' + post.title">
-    <div v-if="post.tags.length > 0">
-        <strong>Tag</strong>
+    <div v-if="post.tags ">
+        <!-- <strong>Tags</strong> -->
             <ul>
                 <li v-for="tag in post.tags" :key="tag.id">
                     {{tag.name}}
@@ -24,7 +24,7 @@
                 <button type="submit">Aggingi commento</button>
             </div>
         </form>
-        <div v-if="commentSent" class="comment_approve">
+        <div v-show="commentSent" class="comment_approve">
             <p>Commento in attesa di approvazione</p>
         </div>
     </div>

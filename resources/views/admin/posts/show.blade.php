@@ -34,6 +34,18 @@
                                 @endif
                     </div>                               
                     
+                   @if (count($post->tags) > 0)
+                        <div class="mb-3">
+                            <strong>Tags:</strong>
+                            @foreach ($post->tags as $tag)
+                            <span class="badge badge-primary">{{$tag->name}}
+                            </span>
+                                
+                            @endforeach
+                        </div>
+                       
+                   @endif
+
                     @if ($post->image)
                     <img width="500" src="{{asset("storage/{$post->image}")}}" alt="{{$post->title}}"> 
                     @endif

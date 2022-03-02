@@ -4087,10 +4087,8 @@ var render = function () {
       },
     }),
     _vm._v(" "),
-    _vm.post.tags.length > 0
+    _vm.post.tags
       ? _c("div", [
-          _c("strong", [_vm._v("Tag")]),
-          _vm._v(" "),
           _c(
             "ul",
             _vm._l(_vm.post.tags, function (tag) {
@@ -4180,11 +4178,21 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _vm.commentSent
-        ? _c("div", { staticClass: "comment_approve" }, [
-            _c("p", [_vm._v("Commento in attesa di approvazione")]),
-          ])
-        : _vm._e(),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.commentSent,
+              expression: "commentSent",
+            },
+          ],
+          staticClass: "comment_approve",
+        },
+        [_c("p", [_vm._v("Commento in attesa di approvazione")])]
+      ),
     ]),
   ])
 }
