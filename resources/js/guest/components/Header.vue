@@ -28,7 +28,7 @@ export default {
 
 <style  lang='scss' scoped>
 header{
-  background-color: #005f73;
+  background-color: #005F73;
   line-height: 1em;
   padding-top: 1em;
   h1{

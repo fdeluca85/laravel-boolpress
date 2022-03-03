@@ -2333,7 +2333,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "footer[data-v-4a9fdc62] {\n  background-color: #005f73;\n}", ""]);
+exports.push([module.i, "footer[data-v-4a9fdc62] {\n  background-color: #005F73;\n}", ""]);
 
 // exports
 
@@ -2352,7 +2352,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-083b147e] {\n  background-color: #005f73;\n  line-height: 1em;\n  padding-top: 1em;\n}\nheader h1[data-v-083b147e] {\n  color: beige;\n  font-family: \"Indie Flower\", cursive;\n}\nbutton[data-v-083b147e] {\n  border: none;\n  padding: 1em;\n  background-color: #94d2bd;\n}\nbutton a[data-v-083b147e] {\n  color: #1A2643;\n  font-size: 1.2em;\n}\nnav[data-v-083b147e] {\n  display: flex;\n  justify-content: space-evenly;\n  padding: 1em;\n}\nnav a[data-v-083b147e] {\n  color: beige;\n  font-size: 1.2em;\n  text-transform: uppercase;\n}\nnav li[data-v-083b147e] {\n  list-style: none;\n}\n.top-header[data-v-083b147e] {\n  padding: 1em 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}", ""]);
+exports.push([module.i, "header[data-v-083b147e] {\n  background-color: #005F73;\n  line-height: 1em;\n  padding-top: 1em;\n}\nheader h1[data-v-083b147e] {\n  color: beige;\n  font-family: \"Indie Flower\", cursive;\n}\nbutton[data-v-083b147e] {\n  border: none;\n  padding: 1em;\n  background-color: #94d2bd;\n}\nbutton a[data-v-083b147e] {\n  color: #1A2643;\n  font-size: 1.2em;\n}\nnav[data-v-083b147e] {\n  display: flex;\n  justify-content: space-evenly;\n  padding: 1em;\n}\nnav a[data-v-083b147e] {\n  color: beige;\n  font-size: 1.2em;\n  text-transform: uppercase;\n}\nnav li[data-v-083b147e] {\n  list-style: none;\n}\n.top-header[data-v-083b147e] {\n  padding: 1em 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}", ""]);
 
 // exports
 
