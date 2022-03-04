@@ -40,7 +40,7 @@ class CommentController extends Controller
 
         //invio notifica via mail
 
-        Mail::to("webmaster@boolepress.com")->send(new CommentMail());
+        Mail::to("webmaster@boolepress.com")->send(new CommentMail($newComment->post));
 
         //risposta
         return response()->json([
