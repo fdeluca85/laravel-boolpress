@@ -18,6 +18,7 @@
                             <th scope="col">Slug</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Pubblicato</th>
+                            <th scope="col">Commenti da approvare</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col"></th>
@@ -34,11 +35,20 @@
                               <span class="badge badge-pill badge-info">{{$post->category->name}}</span>                           
                                 @else
                                 <span class="badge badge-pill badge-secondary">Nessuna categoria</span>                                
-                                @endif</td>
-                                <td>{{$post->published}}</td>
+                                @endif
+                            </td>
+                            <td>
+                              {{$post->published}}
+                            </td>
+                            <td>
+                              @php
+                                  $comments_not_approved = $post->comments->filter(function ($value, $key) {
+                                    return $value->approved == 0; 
+                                  });
+                              @endphp
+                              {{count($comments_not_approved)}}
+                            </td>
                             <td><a href="{{route("posts.show", $post->id)}}"><button type="button" class="btn btn-primary">Vai</button></a></td>
-                            
-                            
                             <td><a href="{{route("posts.edit", $post->id)}}"><button type="button" class="btn btn-warning">Modifica</button></a></td>
                             <td><form action="{{route("posts.destroy", $post->id)}}" method="POST">
                                 @csrf
