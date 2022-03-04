@@ -59,32 +59,31 @@
                         <table class="table table-striped">
                             <tbody>
                                 @foreach ($post->comments as $comment)
-                                <tr>
-                                    <td scope="row">{{$comment->content}}</td>
-                                    <td>
-                                        @if (!$comment->approved)
-                                            <form action="{{route('comments.update', $comment->id)}}" method="POST">
+                                    <tr>
+                                        <td scope="row">{{$comment->content}}</td>
+                                        <td>
+                                            @if (!$comment->approved)
+                                                <form action="{{route('comments.update', $comment->id)}}" method="POST">
+                                                    @csrf
+                                                    @method("PATCH")
+                                                    <input type="hidden" name="approved" value="1">
+                                                    <button type="submit" class="btn btn-success btn-sm">Approva</button>
+                                                </form>
+                                            @else
+                                            <span class="badge badge-success">Approvato</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <form action="{{route("comments.destroy", $comment->id)}}" method="POST">
                                                 @csrf
-                                                @method("PATCH")
-                                                <input type="hidden" name="approved" value="1">
-                                                <button type="submit" class="btn btn-success btn-sm">Approva</button>
+                                                @method("DELETE")
+                                                <button type="submit" class="btn btn-danger">Elimina</button>
                                             </form>
-                                        @else
-                                        <span class="badge badge-success">Approvato</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <form action="">
-                                           
-                                            <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                    
-                                @endforeach
-                              
+                                        </td>
+                                    </tr>                                    
+                                @endforeach                              
                             </tbody>
-                          </table>
+                        </table>
                     </div>
                     @endif
                 </div>
