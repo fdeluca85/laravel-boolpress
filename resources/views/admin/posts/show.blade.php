@@ -50,6 +50,43 @@
                     <img width="500" src="{{asset("storage/{$post->image}")}}" alt="{{$post->title}}"> 
                     @endif
                     <p>{{$post->content}}</p>
+
+
+                    @if (count($post->comments) > 0)
+                    <div>
+                        {{-- @dd($post->comments) --}}
+                        <h3 class="mt-3">Commenti</h3>
+                        <table class="table table-striped">
+                            <tbody>
+                                @foreach ($post->comments as $comment)
+                                <tr>
+                                    <td scope="row">{{$comment->content}}</td>
+                                    <td>
+                                        @if (!$comment->approved)
+                                            <form action="{{route('comments.update', $comment->id)}}" method="POST">
+                                                @csrf
+                                                @method("PATCH")
+                                                <input type="hidden" name="approved" value="1">
+                                                <button type="submit" class="btn btn-success btn-sm">Approva</button>
+                                            </form>
+                                        @else
+                                        <span class="badge badge-success">Approvato</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <form action="">
+                                           
+                                            <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                    
+                                @endforeach
+                              
+                            </tbody>
+                          </table>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

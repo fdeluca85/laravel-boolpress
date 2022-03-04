@@ -23,6 +23,7 @@ Route::prefix("admin")->namespace("Admin")->middleware("auth")->group(function (
     Route::resource("posts", "PostController");
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource("categories", "CategoryController");
+    Route::patch("comments/{comment}", "CommentController@update")->name("comments.update");
 });
 
 Route::get("{any?}", function () {

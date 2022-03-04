@@ -11,6 +11,8 @@
             </ul>
     </div>
     <p>{{post.content}}</p>
+
+    <!-- COMMENTI -->
     <div class="comment">
         <h3>Lascia un commento</h3>
         <form @submit.prevent="addComment()">
@@ -33,7 +35,7 @@
                 <button type="submit">Aggingi commento</button>
             </div>
         </form>
-        <div v-show="commentSent" class="comment_approve">
+        <div v-show="commentSent" class="commentPending">
             <p>Grazie per aver commentato, il commento è in attesa di approvazione</p>
         </div>
     </div>
@@ -57,7 +59,7 @@ export default {
     },
     methods:{
         addComment(){
-            // alert("Commento aggiunto")
+           
             // api/comments
             axios.post(`/api/comments`,this.formData).then( (response) => {
             // console.log(response.data);

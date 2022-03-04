@@ -2270,6 +2270,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePost",
   data: function data() {
@@ -2288,7 +2290,6 @@ __webpack_require__.r(__webpack_exports__);
     addComment: function addComment() {
       var _this = this;
 
-      // alert("Commento aggiunto")
       // api/comments
       axios.post("/api/comments", this.formData).then(function (response) {
         // console.log(response.data);
@@ -4230,7 +4231,7 @@ var render = function () {
               expression: "commentSent",
             },
           ],
-          staticClass: "comment_approve",
+          staticClass: "commentPending",
         },
         [
           _c("p", [
