@@ -17,4 +17,13 @@ class CommentController extends Controller
         //redirect al post
         return redirect()->route("posts.show", $comment->post_id);
     }
+
+    public function destroy(Comment $comment)
+    {
+        $post_id = $comment->post_id;
+
+        $comment->delete();
+
+        return redirect()->route("posts.show", $post_id);
+    }
 }
