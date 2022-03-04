@@ -25,6 +25,11 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+                        <script>
+                            // Replace the <textarea id="editor1"> with a CKEditor 4
+                            // instance, using default configuration.
+                            CKEDITOR.replace( 'content' );
+                        </script>
                                                 {{-- //CATEGORY --}}
                         <div class="form-group">
                             <label for="category">Categoria</label>

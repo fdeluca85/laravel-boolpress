@@ -49,7 +49,7 @@
                     @if ($post->image)
                     <img width="500" src="{{asset("storage/{$post->image}")}}" alt="{{$post->title}}"> 
                     @endif
-                    <p>{{$post->content}}</p>
+                    <p>{!!$post->content!!}</p>
 
 
                     @if (count($post->comments) > 0)

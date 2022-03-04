@@ -10,7 +10,9 @@
                 </li>
             </ul>
     </div>
-    <p>{{post.content}}</p>
+    <div v-html="post.content">
+
+    </div>
 
     <!-- COMMENTI -->
     <div class="comment">

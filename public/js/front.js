@@ -2042,6 +2042,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
   data: function data() {
@@ -2228,6 +2231,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -3841,7 +3846,9 @@ var render = function () {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("p", { staticClass: "intro" }, [_vm._v(_vm._s(post.content))]),
+            _c("div", { staticClass: "intro" }, [
+              _c("p", { domProps: { innerHTML: _vm._s(post.content) } }),
+            ]),
             _vm._v(" "),
             _c(
               "button",
@@ -4126,7 +4133,7 @@ var render = function () {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+    _c("div", { domProps: { innerHTML: _vm._s(_vm.post.content) } }),
     _vm._v(" "),
     _c("div", { staticClass: "comment" }, [
       _c("h3", [_vm._v("Lascia un commento")]),

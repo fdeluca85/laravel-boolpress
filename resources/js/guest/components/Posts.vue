@@ -7,7 +7,10 @@
                     <img class="foto" :src="`/storage/${post.image}`" :alt="'Immagine che ritrae ' + post.title">
                     <p class="categoria" v-if="post.category">{{post.category.name}} </p>
                     
-                    <p class="intro">{{post.content}}</p>
+                    <div  class="intro">
+                        <p v-html="post.content"></p>
+
+                    </div>
                     <button><router-link :to="{ name: 'single-post', params: { slug:post.slug } }">Continua a leggere</router-link></button>
                 </li>
             </ul>
